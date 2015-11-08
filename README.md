@@ -2,6 +2,15 @@
 
 Crazy-simple quick-bookmark terminal script for OSX and Linux. Bookmark the current directory with the `bkm my-folder` command. Navigate back to it by simply typing `my-folder`.
 
+# Commands
+
+| Command | Description | Example |
+|---------|-------------|---------|
+| **`bkm ls`** | List all current bookmarks. | `bkm ls` |
+| **`bkm rm [nickname]`** | Remove the bookmark for the given nickname. | `bkm rm projects` |
+| **`bkm [nickname]`** | Nickname the current directory `nickname` | `bkm projects` |
+| **`bkm [nickname] [directory]`** | Nickname the `directory` `nickname` | `bkm projects ~/Documents/Projects` |
+
 # Setup
 
 ## Auto-Install
@@ -42,4 +51,4 @@ cd ~/Documents/CuteGoldfishPictures/Favorites
 bkm gfish
 ```
 
-Re-source your rc (`source ~/.bashrc`) and then you can type `gfish` from any directory to immediately navigate back to that directory.
+**Re-source your rc (`source ~/.bashrc`)** and then you can type `gfish` from any directory to immediately navigate back to that directory.

@@ -3,19 +3,53 @@
 import sys
 import os
 
+
+def convert_lines_to_dict(lines):
+    items = {}
+    for n in lines:
+        items[n.split('=')[0].split()[1]] = n.split()[2][:-1]
+    return items
+
+def print_items(items):
+    for k, v in items.iteritems():
+        print "{}\t\t{}".format(k, v)
+
 def main(args):
     """
     Syntax is `bkm nickname [directory]`. Directory defaults to PWD
     """
     if len(args) < 1:
         raise ValueError("Not enough args. Usage: `bkm nickname [directory]`")
-    
-    nickname = args[0]
-    cwd = os.getcwd()
-    with open(os.path.expanduser('~/.bkm'), 'a') as fh:
-        fh.write('alias {}="cd {}"\n'.format(nickname, cwd))
+
+    if args[0] in ['-r', 'remove', '--remove', 'rm']:
+        needs_refresh = False
+        with open(os.path.expanduser('~/.bkm'), 'r') as fh:
+            items = convert_lines_to_dict(fh.readlines())
+            if args[1] in items:
+                del items[args[1]]
+                needs_refresh = True
+        if needs_refresh:
+            with open(os.path.expanduser('~/.bkm'), 'w') as fw:
+                for nickname, directory in items.iteritems():
+                    fw.write('alias {}="cd {}"\n'.format(nickname, directory))
+
+
+    elif args[0] in ['-l', 'list', '--list', 'ls']:
+        with open(os.path.expanduser('~/.bkm'), 'r') as fh:
+            items = convert_lines_to_dict(fh.readlines())
+            print_items(items)
+
+    else:
+        nickname = args[0]
+
+        if len(args) > 1:
+            directory = os.path.expanduser(args[1])
+        else:
+            directory = os.getcwd()
+
+        with open(os.path.expanduser('~/.bkm'), 'a+') as fh:
+            fh.write('alias {}="cd {}"\n'.format(nickname, directory))
 
 
 if __name__ == '__main__':
     main(sys.argv[1:])
-
