@@ -2,6 +2,8 @@
 
 Crazy-simple quick-bookmark terminal script for OSX and Linux. Bookmark the current directory with the `bkm my-folder` command. Navigate back to it by simply typing `my-folder`.
 
+Note: There's nothing to stop you from saying `bkm ls` and borking your `ls` command. Don't do the dumb thing!
+
 # Commands
 
 | Command | Description | Example |
