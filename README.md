@@ -9,7 +9,7 @@ Note: There's nothing to stop you from saying `bkm ls` and borking your `ls` com
 | Command | Description | Example |
 |---------|-------------|---------|
 | **`bkm ls`** or **`bkm list`** | List all current bookmarks. | `bkm ls` |
-| **`bkm rm [nickname]`** or **`bkm remove`** | Remove the bookmark for the given nickname. | `bkm rm projects` |
+| **`bkm rm [nickname]`** or **`bkm remove [nickname]`** | Remove the bookmark for the given nickname. | `bkm rm projects` |
 | **`bkm [nickname]`** | Nickname the current directory `nickname` | `bkm projects` |
 | **`bkm [nickname] [directory]`** | Nickname the `directory` `nickname` | `bkm projects ~/Documents/Projects` |
 
