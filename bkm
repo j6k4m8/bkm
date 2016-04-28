@@ -12,7 +12,7 @@ def convert_lines_to_dict(lines):
 
 def print_items(items):
     for k, v in items.iteritems():
-        print "{}\t\t{}".format(k, v)
+        print("{}\t\t{}".format(k, v))
 
 def main(args):
     """
