@@ -13,7 +13,7 @@ def convert_lines_to_dict(lines):
 
 def print_items(items):
     for k, v in six.iteritems(items):
-        print("{}\t\t{}".format(k, v))
+        print("{}{}{}".format(k, " " * (20 - len(k)), v))
 
 def main(args):
     """
