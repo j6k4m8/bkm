@@ -31,7 +31,7 @@ def main(args):
                 needs_refresh = True
         if needs_refresh:
             with open(os.path.expanduser('~/.bkm'), 'w') as fw:
-                for nickname, directory in items.iteritems():
+                for nickname, directory in six.iteritems(items):
                     fw.write('alias {}="cd {}"\n'.format(nickname, directory))
 
 
